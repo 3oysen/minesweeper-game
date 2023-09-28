@@ -1,5 +1,16 @@
-.container {
-	h1 {
-		color: navy;
+h1 {
+	color: navy;
+}
+
+.grid {
+	height: 400px;
+	width: 400px;
+	display: flex;
+	flex-wrap: wrap;
+	background-color: grey;
+
+	div {
+		height: 40px;
+		width: 40px;
 	}
 }
