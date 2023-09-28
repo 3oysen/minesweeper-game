@@ -1,5 +1,5 @@
 h1 {
-  color: navy;
+  color: #ffffff;
 }
 
 .grid {
@@ -7,9 +7,14 @@ h1 {
   width: 400px;
   display: flex;
   flex-wrap: wrap;
-  background-color: grey;
+  background-color: #999;
 }
 .grid div {
   height: 40px;
   width: 40px;
+}
+
+body {
+  font-family: "Poppins", Helvertica, sans-serif;
+  background-color: #a0d2fd;
 }/*# sourceMappingURL=style.css.map */
