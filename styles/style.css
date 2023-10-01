@@ -13,6 +13,9 @@ h1 {
   height: 40px;
   width: 40px;
 }
+.grid .bomb {
+  background-color: orange;
+}
 
 body {
   font-family: "Poppins", Helvertica, sans-serif;
