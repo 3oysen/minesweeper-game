@@ -38,4 +38,11 @@ document.addEventListener("DOMContentLoaded", () => {
 	}
 
 	createBoard();
+
+	// click on square action
+	function click(square) {
+		if (square.classList.contains("bomb")) {
+			console.log("game over");
+		}
+	}
 });
