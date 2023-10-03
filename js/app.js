@@ -17,7 +17,25 @@ document.addEventListener("DOMContentLoaded", () => {
 			square.classList.add(shuffledArray[i]);
 			grid.appendChild(square);
 			squares.push(square);
+
+			//normal click
+			square.addEventListener("click", function (e) {
+				click(square);
+			});
 		}
+		// TO DO!
+		// add numbers
+		// for (let i = 0; i < squares.length; i++) {
+		// 	let total = 0;
+		// 	const isLeftEdge = i % width === 0;
+		// 	const isRightEdge = i % width === width - 1;
+
+		// 	if (squares[i].classList.contains("valid")) {
+		// 		if (i > 0 && isLeftEdge && squares[i - 1].classList.contains("bomb"))
+		// 			total++;
+		// 	}
+		// }
 	}
+
 	createBoard();
 });
