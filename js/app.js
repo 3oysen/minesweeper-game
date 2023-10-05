@@ -23,18 +23,33 @@ document.addEventListener("DOMContentLoaded", () => {
 				click(square);
 			});
 		}
-		// TO DO!
 		// add numbers
-		// for (let i = 0; i < squares.length; i++) {
-		// 	let total = 0;
-		// 	const isLeftEdge = i % width === 0;
-		// 	const isRightEdge = i % width === width - 1;
+		for (let i = 0; i < squares.length; i++) {
+			let total = 0;
+			const isLeftEdge = i % width === 0;
+			const isRightEdge = i % width === width - 1;
 
-		// 	if (squares[i].classList.contains("valid")) {
-		// 		if (i > 0 && isLeftEdge && squares[i - 1].classList.contains("bomb"))
-		// 			total++;
-		// 	}
-		// }
+			if (squares[i].classList.contains("valid")) {
+				if (i > 0 && !isLeftEdge && squares[i - 1].classList.contains("bomb"))
+					total++;
+				// TO DO!
+				if (
+					i > 9 &&
+					!isRightEdge &&
+					squares[i + 1 - width].classList.contains("bomb")
+				)
+					total++;
+				if (
+					i > 9 &&
+					!isRightEdge &&
+					squares[i + 1 - width].classList.contains("bomb")
+				)
+					total++;
+
+				squares[i].setAttribute("data", total);
+				console.log(squares[i]);
+			}
+		}
 	}
 
 	createBoard();
@@ -43,6 +58,8 @@ document.addEventListener("DOMContentLoaded", () => {
 	function click(square) {
 		if (square.classList.contains("bomb")) {
 			console.log("game over");
+		} else {
+			console.log("its normal field");
 		}
 	}
 });
