@@ -30,6 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
 			const isRightEdge = i % width === width - 1;
 
 			if (squares[i].classList.contains("valid")) {
+				if (i > 0 && !isLeftEdge && squares[i - 1].classList.contains("bomb")) total++; // W
 				if (i > 11 && !isRightEdge && squares[i - 1 - width].classList.contains("bomb")) total++; //NW
 				if (i > 10 && squares[i - width].classList.contains("bomb")) total++; // N
 				if (i > 9 && !isRightEdge && squares[i + 1 - width].classList.contains("bomb")) total++; // NE
@@ -37,10 +38,8 @@ document.addEventListener("DOMContentLoaded", () => {
 				if (i < 88 && !isRightEdge && squares[i + 1 + width].classList.contains("bomb")) total++; // SE
 				if (i < 89 && squares[i + width].classList.contains("bomb")) total++; // S
 				if (i < 90 && !isLeftEdge && squares[i - 1 + width].classList.contains("bomb")) total++; // SW
-				if (i > 0 && !isLeftEdge && squares[i - 1].classList.contains("bomb")) total++; // W
 
 				squares[i].setAttribute("data", total);
-				console.log(squares[i]);
 			}
 		}
 	}
@@ -52,7 +51,10 @@ document.addEventListener("DOMContentLoaded", () => {
 		if (square.classList.contains("bomb")) {
 			console.log("game over");
 		} else {
-			console.log("its normal field");
+			let total = square.getAttribute("data");
+			if (total != 0) {
+				square.classList.add("checked");
+			}
 		}
 	}
 });
