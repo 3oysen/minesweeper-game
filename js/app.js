@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	let width = 10;
 	let bombAmount = 20;
 	let squares = [];
+	let isGameOver = false;
 
 	//create board
 	function createBoard() {
@@ -48,6 +49,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	// click on square action
 	function click(square) {
+		let currrentId = square.id;
+		if (isGameOver) return;
+		if (square.classList.contains("checked") || square.classList.contains("flag")) return;
 		if (square.classList.contains("bomb")) {
 			console.log("game over");
 		} else {
@@ -57,7 +61,20 @@ document.addEventListener("DOMContentLoaded", () => {
 				square.innerHTML = total;
 				return;
 			}
-			square.classList.add("checked");
+			checkSquare(square, currrentId);
 		}
+		square.classList.add("checked");
+	}
+
+	// check the neighboring square
+	function checkSquare(square, currrentId) {
+		const isLeftEdge = currrentId % width === 0;
+		const isRightEdge = currrentId % width === width - 1;
+
+		setTimeout(() => {
+			if (currrentId > 0 && !isLeftEdge) {
+				const newId = squares[currrentId - 1];
+			}
+		}, 10);
 	}
 });
