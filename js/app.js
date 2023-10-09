@@ -73,7 +73,44 @@ document.addEventListener("DOMContentLoaded", () => {
 
 		setTimeout(() => {
 			if (currrentId > 0 && !isLeftEdge) {
-				const newId = squares[currrentId - 1];
+				const newId = squares[parseInt(currrentId) - 1].id;
+				const newSquare = document.getElementById(newId);
+				click(newSquare);
+			}
+			if (currrentId > 9 && !isRightEdge) {
+				const newId = squares[parseInt(currrentId) + 1 - width].id;
+				const newSquare = document.getElementById(newId);
+				click(newSquare);
+			}
+			if (currrentId > 10) {
+				const newId = squares[parseInt(currrentId) - width].id;
+				const newSquare = document.getElementById(newId);
+				click(newSquare);
+			}
+			if (currrentId > 11 && !isLeftEdge) {
+				const newId = squares[parseInt(currrentId) - 1 - width].id;
+				const newSquare = document.getElementById(newId);
+				click(newSquare);
+			}
+			if (currrentId < 88 && !isRightEdge) {
+				const newId = squares[parseInt(currrentId) + 1 + width].id;
+				const newSquare = document.getElementById(newId);
+				click(newSquare);
+			}
+			if (currrentId < 89) {
+				const newId = squares[parseInt(currrentId) + width].id;
+				const newSquare = document.getElementById(newId);
+				click(newSquare);
+			}
+			if (currrentId < 90 && !isLeftEdge) {
+				const newId = squares[parseInt(currrentId) - 1 + width].id;
+				const newSquare = document.getElementById(newId);
+				click(newSquare);
+			}
+			if (currrentId < 98 && !isRightEdge) {
+				const newId = squares[parseInt(currrentId) + 1].id;
+				const newSquare = document.getElementById(newId);
+				click(newSquare);
 			}
 		}, 10);
 	}
