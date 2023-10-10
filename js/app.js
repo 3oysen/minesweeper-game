@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	let squares = [];
 	let isGameOver = false;
 
-	//create board
+	// create board
 	function createBoard() {
 		const bombsArray = Array(bombAmount).fill("bomb");
 		const emptyArray = Array(width * width - bombAmount).fill("valid");
@@ -20,10 +20,16 @@ document.addEventListener("DOMContentLoaded", () => {
 			grid.appendChild(square);
 			squares.push(square);
 
-			//normal click
+			// normal click
 			square.addEventListener("click", function (e) {
 				click(square);
 			});
+
+			// right click
+			square.oncontextmenu = function (e) {
+				e.preventDefault();
+				addFlag(square);
+			};
 		}
 		// add numbers
 		for (let i = 0; i < squares.length; i++) {
@@ -50,7 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	// add flag with right click
 	function addFlag(square) {
-		if (GameOver) return;
+		if (isGameOver) return;
 		if (!square.classList.contains("checked") && flags < bombAmount) {
 			if (!square.classList.contains("flag")) {
 				square.classList.add("flag");
