@@ -1,0 +1,15 @@
+@mixin square {
+	height: 40px;
+	width: 40px;
+	background-color: #bfbfbf;
+	border-bottom: 2px solid #7b7b7b;
+	border-left: 2px solid #ffffff;
+	border-top: 2px solid #ffffff;
+	border-right: 2px solid #7b7b7b;
+
+	:hover {
+		background-color: lightgray;
+		color: slategray;
+		cursor: pointer;
+	}
+}

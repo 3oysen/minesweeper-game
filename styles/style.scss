@@ -1,5 +1,7 @@
 @import "base";
 @import "variables";
+@import "mixin";
+@import "square";
 
 body {
 	font-family: $fonts;

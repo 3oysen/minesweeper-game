@@ -1,26 +1,57 @@
 @import "variables";
+@import "square";
+@import "mixin";
 
 h1 {
 	color: $primary-color;
 }
 
 .grid {
-	height: 400px;
-	width: 400px;
+	height: 440px;
+	width: 440px;
 	display: flex;
 	flex-wrap: wrap;
 	background-color: $grid-color;
 
 	div {
-		height: 40px;
-		width: 40px;
+		@include square;
 	}
-
 	.checked {
-		background-color: red;
+		background-color: rgb(255, 160, 160);
 	}
-
 	.bomb {
-		background-color: orange;
+		background-color: rgb(85, 85, 85);
+	}
+	.one {
+		@include justify-square;
+		color: #e76346;
+	}
+	.two {
+		@include justify-square;
+		color: #4199d3;
+	}
+	.three {
+		@include justify-square;
+		color: #37b639;
+	}
+	.four {
+		@include justify-square;
+		color: #bb41d3;
+	}
+	.five {
+		@include justify-square;
+		color: #8b5836;
+	}
+	.six {
+		@include justify-square;
+		color: #00227f;
+	}
+	.seven {
+		@include justify-square;
+		color: #ff5e00;
+	}
+	.eight {
+		@include justify-square;
+		color: #ffe731;
 	}
 }
