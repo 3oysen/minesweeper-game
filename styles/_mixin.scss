@@ -1,7 +1,7 @@
 @mixin justify-square {
 	display: flex;
-	align-items: center;
 	justify-content: center;
+	align-items: center;
 	font-size: 20px;
 	font-weight: 700;
 }

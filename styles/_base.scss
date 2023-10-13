@@ -16,12 +16,26 @@ h1 {
 	div {
 		@include square;
 	}
+
+	.flag {
+		@include justify-square;
+	}
+
 	.checked {
+		@include justify-square;
 		background-color: rgb(255, 160, 160);
 	}
+
 	.bomb {
+		@include justify-square;
+		// background-color: rgb(85, 85, 85);
+	}
+
+	.detonated {
+		@include justify-square;
 		background-color: rgb(85, 85, 85);
 	}
+
 	.one {
 		@include justify-square;
 		color: #e76346;

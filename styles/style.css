@@ -23,72 +23,96 @@ h1 {
   color: slategray;
   cursor: pointer;
 }
+.grid .flag {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  font-weight: 700;
+}
 .grid .checked {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  font-weight: 700;
   background-color: rgb(255, 160, 160);
 }
 .grid .bomb {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  font-weight: 700;
+}
+.grid .detonated {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  font-weight: 700;
   background-color: rgb(85, 85, 85);
 }
 .grid .one {
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   font-size: 20px;
   font-weight: 700;
   color: #e76346;
 }
 .grid .two {
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   font-size: 20px;
   font-weight: 700;
   color: #4199d3;
 }
 .grid .three {
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   font-size: 20px;
   font-weight: 700;
   color: #37b639;
 }
 .grid .four {
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   font-size: 20px;
   font-weight: 700;
   color: #bb41d3;
 }
 .grid .five {
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   font-size: 20px;
   font-weight: 700;
   color: #8b5836;
 }
 .grid .six {
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   font-size: 20px;
   font-weight: 700;
   color: #00227f;
 }
 .grid .seven {
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   font-size: 20px;
   font-weight: 700;
   color: #ff5e00;
 }
 .grid .eight {
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   font-size: 20px;
   font-weight: 700;
   color: #ffe731;

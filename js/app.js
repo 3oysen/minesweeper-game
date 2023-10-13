@@ -81,6 +81,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		if (isGameOver) return;
 		if (square.classList.contains("checked") || square.classList.contains("flag")) return;
 		if (square.classList.contains("bomb")) {
+			square.classList.add("detonated");
 			GameOver(square);
 		} else {
 			let total = square.getAttribute("data");
@@ -166,7 +167,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		});
 	}
 
-	//check for win
+	// check for win
 	function checkForWin() {
 		let matches = 0;
 
