@@ -1,5 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
 	const grid = document.querySelector(".grid");
+	const flagsLeft = document.querySelector("#flags-left");
+	const result = document.querySelector("#result");
 	let width = 10;
 	let bombAmount = 20;
 	let flags = 0;
@@ -62,11 +64,13 @@ document.addEventListener("DOMContentLoaded", () => {
 				square.classList.add("flag");
 				square.innerHTML = "🚩";
 				flags++;
+				flagsLeft.innerHTML = bombAmount - flags;
 				checkForWin();
 			} else {
 				square.classList.remove("flag");
 				square.innerHTML = "";
 				flags--;
+				flagsLeft.innerHTML = bombAmount - flags;
 			}
 		}
 	}
@@ -149,13 +153,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	// game over
 	function GameOver(square) {
-		console.log("game over");
+		result.innerHTML = "boom! game over";
 		isGameOver = true;
 
 		// show all bombs
 		squares.forEach((square) => {
 			if (square.classList.contains("bomb")) {
 				square.innerHTML = "💣";
+				square.classList.remove("bomb");
+				square.classList.add("checked");
 			}
 		});
 	}
@@ -169,7 +175,7 @@ document.addEventListener("DOMContentLoaded", () => {
 				matches++;
 			}
 			if (matches === bombAmount) {
-				console.log("YOU WIN!");
+				result.innerHTML = "you win!";
 				isGameOver = true;
 			}
 		}
