@@ -56,6 +56,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	createBoard();
 
+	flagsLeft.innerHTML = bombAmount;
+
 	// add flag with right click
 	function addFlag(square) {
 		if (isGameOver) return;
@@ -154,7 +156,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	// game over
 	function GameOver(square) {
-		result.innerHTML = "boom! game over";
+		result.innerHTML = "Boom! Game Over";
 		isGameOver = true;
 
 		// show all bombs

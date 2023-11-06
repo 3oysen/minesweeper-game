@@ -2,8 +2,17 @@
 @import "square";
 @import "mixin";
 
+div {
+	color: $primary-color;
+	font-size: 2em;
+}
+
 h1 {
 	color: $primary-color;
+}
+
+.flags-left-subtitle {
+	margin-top: 50px;
 }
 
 .grid {

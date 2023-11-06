@@ -1,5 +1,14 @@
+div {
+  color: #ffffff;
+  font-size: 2em;
+}
+
 h1 {
   color: #ffffff;
+}
+
+.flags-left-subtitle {
+  margin-top: 50px;
 }
 
 .grid {
@@ -120,5 +129,9 @@ h1 {
 
 body {
   font-family: "Poppins", Helvertica, sans-serif;
-  background-color: #a0d2fd;
+  background-color: #192d41;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }/*# sourceMappingURL=style.css.map */
