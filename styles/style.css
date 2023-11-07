@@ -1,6 +1,14 @@
+h1 {
+  color: #ffffff;
+}
+
 div {
   color: #ffffff;
   font-size: 2em;
+}
+
+.start-button {
+  font-size: 3em;
 }
 
 .description-section {
@@ -15,19 +23,12 @@ div {
   margin: 0;
 }
 
-h1 {
-  color: #ffffff;
-}
-
-.flags-left-subtitle {
-  margin-top: 50px;
-}
-
 .grid {
   height: 440px;
   width: 440px;
   display: flex;
   flex-wrap: wrap;
+  margin: 2rem;
   background-color: #999;
 }
 .grid div {

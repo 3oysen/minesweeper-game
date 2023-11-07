@@ -2,11 +2,15 @@ document.addEventListener("DOMContentLoaded", () => {
 	const grid = document.querySelector(".grid");
 	const flagsLeft = document.querySelector("#flags-left");
 	const result = document.querySelector("#result");
+	const timerElement = document.getElementById("timer");
 	let width = 10;
-	let bombAmount = 20;
+	let bombAmount = 10;
 	let flags = 0;
 	let squares = [];
 	let isGameOver = false;
+	let timerInterval;
+	let seconds = 0;
+	let minutes = 0;
 
 	// create board
 	function createBoard() {
@@ -156,10 +160,33 @@ document.addEventListener("DOMContentLoaded", () => {
 		}, 10);
 	}
 
+	// timer
+	grid.addEventListener("click", startTimer);
+
+	function startTimer() {
+		grid.disabled = true;
+		grid.removeEventListener("click", startTimer);
+		timerInterval = setInterval(updateTimer, 1000);
+		if (isGameOver == true) {
+			clearInterval(timerInterval);
+		}
+	}
+
+	function updateTimer() {
+		seconds++;
+		if (seconds === 60) {
+			seconds = 0;
+			minutes++;
+		}
+		const formattedTime = `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
+		timerElement.textContent = formattedTime;
+	}
+
 	// game over
 	function GameOver(square) {
 		result.innerHTML = "Boom! Game Over";
 		isGameOver = true;
+		clearInterval(timerInterval);
 
 		// show all bombs
 		squares.forEach((square) => {
@@ -174,13 +201,14 @@ document.addEventListener("DOMContentLoaded", () => {
 	// check for win
 	function checkForWin() {
 		let matches = 0;
+		clearInterval(timerInterval);
 
 		for (let i = 0; i < squares.length; i++) {
 			if (squares[i].classList.contains("flag") && squares[i].classList.contains("bomb")) {
 				matches++;
 			}
 			if (matches === bombAmount) {
-				result.innerHTML = "you win!";
+				result.innerHTML = "You Win!";
 				isGameOver = true;
 			}
 		}

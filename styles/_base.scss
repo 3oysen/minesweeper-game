@@ -2,10 +2,23 @@
 @import "square";
 @import "mixin";
 
+h1 {
+	color: $primary-color;
+}
+
 div {
 	color: $primary-color;
 	font-size: 2em;
 }
+
+.start-button {
+	font-size: 3em;
+}
+
+.flags-left-subtitle {
+	// margin-top: 50px;
+}
+
 .description-section {
 	font-size: 10px;
 	margin: $spacing;
@@ -19,19 +32,12 @@ div {
 	}
 }
 
-h1 {
-	color: $primary-color;
-}
-
-.flags-left-subtitle {
-	margin-top: 50px;
-}
-
 .grid {
 	height: 440px;
 	width: 440px;
 	display: flex;
 	flex-wrap: wrap;
+	margin: $spacing;
 	background-color: $grid-color;
 
 	div {
