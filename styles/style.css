@@ -3,6 +3,18 @@ div {
   font-size: 2em;
 }
 
+.description-section {
+  font-size: 10px;
+  margin: 2rem;
+}
+.description-section div {
+  margin: 2rem;
+}
+.description-section .text-secondary-color {
+  color: #7bdaff;
+  margin: 0;
+}
+
 h1 {
   color: #ffffff;
 }

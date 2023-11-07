@@ -6,6 +6,18 @@ div {
 	color: $primary-color;
 	font-size: 2em;
 }
+.description-section {
+	font-size: 10px;
+	margin: $spacing;
+	div {
+		margin: $spacing;
+	}
+
+	.text-secondary-color {
+		color: $text-secondary-color;
+		margin: 0;
+	}
+}
 
 h1 {
 	color: $primary-color;
