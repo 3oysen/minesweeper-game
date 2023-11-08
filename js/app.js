@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	const result = document.querySelector("#result");
 	const timerElement = document.getElementById("timer");
 	let width = 10;
-	let bombAmount = 10;
+	let bombAmount = 4;
 	let flags = 0;
 	let squares = [];
 	let isGameOver = false;
@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	// add flag with right click
 	function addFlag(square) {
 		if (isGameOver) return;
-		if (!square.classList.contains("checked") && flags < bombAmount) {
+		if (!square.classList.contains("checked") || (square.classList.contains("flag") && flags < bombAmount)) {
 			if (!square.classList.contains("flag")) {
 				square.classList.add("flag");
 				square.innerHTML = "🚩";
@@ -78,6 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
 				square.classList.remove("flag");
 				square.innerHTML = "";
 				flags--;
+				console.log("usuwam");
 				flagsLeft.innerHTML = bombAmount - flags;
 			}
 		}
@@ -161,11 +162,13 @@ document.addEventListener("DOMContentLoaded", () => {
 	}
 
 	// timer
-	grid.addEventListener("click", startTimer);
+	grid.addEventListener("click", startTimer) || grid.addEventListener("contextmenu", startTimer);
+	// grid.addEventListener("contextmenu", startTimer);
 
 	function startTimer() {
 		grid.disabled = true;
 		grid.removeEventListener("click", startTimer);
+		grid.removeEventListener("contextmenu", startTimer);
 		timerInterval = setInterval(updateTimer, 1000);
 		if (isGameOver == true) {
 			clearInterval(timerInterval);
@@ -201,7 +204,6 @@ document.addEventListener("DOMContentLoaded", () => {
 	// check for win
 	function checkForWin() {
 		let matches = 0;
-		clearInterval(timerInterval);
 
 		for (let i = 0; i < squares.length; i++) {
 			if (squares[i].classList.contains("flag") && squares[i].classList.contains("bomb")) {
@@ -210,6 +212,14 @@ document.addEventListener("DOMContentLoaded", () => {
 			if (matches === bombAmount) {
 				result.innerHTML = "You Win!";
 				isGameOver = true;
+				clearInterval(timerInterval);
+			}
+			if (isGameOver) {
+				squares.forEach((square) => {
+					if (square.classList.contains("valid")) {
+						square.classList.add("checked");
+					}
+				});
 			}
 		}
 	}
