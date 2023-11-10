@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	const result = document.querySelector("#result");
 	const timerElement = document.getElementById("timer");
 	let width = 10;
-	let bombAmount = 4;
+	let bombAmount = 3;
 	let flags = 0;
 	let squares = [];
 	let isGameOver = false;
@@ -68,7 +68,10 @@ document.addEventListener("DOMContentLoaded", () => {
 	function addFlag(square) {
 		if (isGameOver) return;
 		if (!square.classList.contains("checked") || (square.classList.contains("flag") && flags < bombAmount)) {
-			if (!square.classList.contains("flag")) {
+			if (bombAmount - flags <= 0 && !square.classList.contains("flag")) {
+				console.log(flags);
+				return;
+			} else if (!square.classList.contains("flag")) {
 				square.classList.add("flag");
 				square.innerHTML = "🚩";
 				flags++;
@@ -78,7 +81,6 @@ document.addEventListener("DOMContentLoaded", () => {
 				square.classList.remove("flag");
 				square.innerHTML = "";
 				flags--;
-				console.log("usuwam");
 				flagsLeft.innerHTML = bombAmount - flags;
 			}
 		}
