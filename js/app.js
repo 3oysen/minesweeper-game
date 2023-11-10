@@ -173,7 +173,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	// timer
 	grid.addEventListener("click", startTimer) || grid.addEventListener("contextmenu", startTimer);
-	// grid.addEventListener("contextmenu", startTimer);
 
 	function startTimer() {
 		grid.disabled = true;
@@ -200,6 +199,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		result.innerHTML = "Boom! Game Over";
 		isGameOver = true;
 		clearInterval(timerInterval);
+		gameOverSoundEffect();
 
 		// show all bombs
 		squares.forEach((square) => {
@@ -209,6 +209,11 @@ document.addEventListener("DOMContentLoaded", () => {
 				square.classList.add("checked");
 			}
 		});
+	}
+
+	function gameOverSoundEffect() {
+		var audio = document.getElementById("gameOverSoundEffect");
+		audio.play();
 	}
 
 	// check for win
@@ -223,6 +228,7 @@ document.addEventListener("DOMContentLoaded", () => {
 				result.innerHTML = "You Win!";
 				isGameOver = true;
 				clearInterval(timerInterval);
+				winSoundEffect();
 			}
 			if (isGameOver) {
 				squares.forEach((square) => {
@@ -232,5 +238,10 @@ document.addEventListener("DOMContentLoaded", () => {
 				});
 			}
 		}
+	}
+
+	function winSoundEffect() {
+		var audio = document.getElementById("winSoundEffect");
+		audio.play();
 	}
 });
